@@ -2,6 +2,7 @@ package Practice.Practice;
 
 import Practice.Practice.discount.DiscountPolicy;
 import Practice.Practice.discount.FixDiscountPolicy;
+import Practice.Practice.discount.RateDiscountPoilcy;
 import Practice.Practice.member.MemberRepository;
 import Practice.Practice.member.MemberService;
 import Practice.Practice.member.MemberServiceimpl;
@@ -25,7 +26,7 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy(){
-        return new FixDiscountPolicy();
+        return new RateDiscountPoilcy();
     }
 
 }
