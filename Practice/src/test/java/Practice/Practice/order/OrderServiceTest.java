@@ -1,17 +1,26 @@
 package Practice.Practice.order;
 
+import Practice.Practice.AppConfig;
 import Practice.Practice.member.Grade;
 import Practice.Practice.member.Member;
 import Practice.Practice.member.MemberService;
 import Practice.Practice.member.MemberServiceimpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 public class OrderServiceTest {
 
-    MemberService memberService =new MemberServiceimpl();
-    OrderService orderService =new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder(){
