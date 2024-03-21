@@ -2,7 +2,11 @@ package Practice.Practice.member;
 
 public class MemberServiceimpl implements MemberService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private MemberRepository memberRepository ;
+
+    public MemberServiceimpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
