@@ -1,12 +1,12 @@
 package Practice.Practice.order;
 
 import Practice.Practice.discount.DiscountPolicy;
-import Practice.Practice.discount.FixDiscountPolicy;
-import Practice.Practice.discount.RateDiscountPoilcy;
 import Practice.Practice.member.Member;
 import Practice.Practice.member.MemberRepository;
-import Practice.Practice.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
     //DIP위반
@@ -21,6 +21,7 @@ public class OrderServiceImpl implements OrderService{
     private final DiscountPolicy discountPolicy;
     private final MemberRepository memberRepository ;
 
+    @Autowired
     public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         this.discountPolicy = discountPolicy;
         this.memberRepository = memberRepository;
