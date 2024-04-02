@@ -3,10 +3,12 @@ package Practice.Practice.order;
 import Practice.Practice.discount.DiscountPolicy;
 import Practice.Practice.member.Member;
 import Practice.Practice.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     //DIP위반
@@ -21,11 +23,12 @@ public class OrderServiceImpl implements OrderService{
     private final DiscountPolicy discountPolicy;
     private final MemberRepository memberRepository ;
 
-    @Autowired
-    public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
-        this.discountPolicy = discountPolicy;
-        this.memberRepository = memberRepository;
-    }
+    //lombok 사용시 생성자 따로 만들 필요 없음
+//    @Autowired
+//    public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+//        this.discountPolicy = discountPolicy;
+//        this.memberRepository = memberRepository;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
